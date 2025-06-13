@@ -46,3 +46,8 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ env.BRANCH }}
+
+      - run: echo "DEFAULT env > CI ${{ CI }}"
+      - run: echo "DEFAULT env > GITHUB_PATH ${{ GITHUB_PATH }}"
+      - run: echo "DEFAULT env > GITHUB_PATH ${{ GITHUB_REPOSITORY }}"
+      - run: echo "DEFAULT env > GITHUB_PATH ${{ RUNNER_OS }}"
