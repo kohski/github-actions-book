@@ -6,6 +6,9 @@ jobs:
   print:
     runs-on: ubuntu-latest
     steps:
+      - run: echo "-----------------------------------------------"
+      - run: echo "githubコンテキスト"
+      - run: echo "-----------------------------------------------"
       - run: echo "github.actor = ${{ github.actor }}"
       - run: echo "github.run_id = ${{ github.run_id }}"
       - run: echo "github.head_ref = ${{ github.head_ref }}"
@@ -14,3 +17,14 @@ jobs:
       - run: echo "github.repository_owner = ${{ github.repository_owner }}"
       - run: echo "github.path = ${{ github.path }}"
       - run: echo "github.event = ${{ github.event }}" # eventは唯一のオブジェクト型
+
+      - run: echo "-----------------------------------------------"
+      - run: echo "runnerコンテキスト"
+      - run: echo "-----------------------------------------------"
+      - run: echo "runner.name = ${{ runner.name }}"
+      - run: echo "runner.os = ${{ runner.os }}"
+      - run: echo "runner.arch = ${{ runner.arch }}"
+      - run: echo "runner.name = ${{ runner.name }}"
+      - run: echo "runner.temp = ${{ runner.temp }}"
+      - run: echo "runner.tool_cache = ${{ runner.tool_cache }}"
+      - run: echo "runner.debug = ${{ runner.debug }}"
