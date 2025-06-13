@@ -6,11 +6,11 @@ jobs:
   print:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ github.actor }}"
-      - run: echo "${{ github.run_id }}"
-      - run: echo "${{ github.head_ref }}"
-      - run: echo "${{ github.workspace }}"
-      - run: echo "${{ github.repository }}"
-      - run: echo "${{ github.repository_owner }}"
-      - run: echo "${{ github.path }}"
-      - run: echo "${{ github.event }}" # eventは唯一のオブジェクト型
+      - run: echo "github.actor = ${{ github.actor }}"
+      - run: echo "github.run_id = ${{ github.run_id }}"
+      - run: echo "github.head_ref = ${{ github.head_ref }}"
+      - run: echo "github.workspace = ${{ github.workspace }}"
+      - run: echo "github.repository = ${{ github.repository }}"
+      - run: echo "github.repository_owner = ${{ github.repository_owner }}"
+      - run: echo "github.path = ${{ github.path }}"
+      - run: echo "github.event = ${{ github.event }}" # eventは唯一のオブジェクト型
