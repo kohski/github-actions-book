@@ -49,4 +49,4 @@ jobs:
 
       - run: echo "$CI"
       - run: echo "${CI}"
-      # - run: echo "${{ CI }}"
+      - run: echo "${{ env.CI }}"
