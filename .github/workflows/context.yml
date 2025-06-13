@@ -5,6 +5,8 @@ on: push
 jobs:
   print:
     runs-on: ubuntu-latest
+    env:
+      BRANCH: main
     steps:
       - run: echo "-----------------------------------------------"
       - run: echo "githubコンテキスト"
@@ -28,3 +30,11 @@ jobs:
       - run: echo "runner.temp = ${{ runner.temp }}"
       - run: echo "runner.tool_cache = ${{ runner.tool_cache }}"
       - run: echo "runner.debug = ${{ runner.debug }}"
+
+      - run: echo "-----------------------------------------------"
+      - run: echo "env"
+      - run: echo "-----------------------------------------------"
+      - run: echo "${{ env.BRANCH }}"
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.BRANCH }}
