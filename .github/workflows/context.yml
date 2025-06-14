@@ -112,7 +112,7 @@ jobs:
       - run: echo "ステップ間の受渡し"
       - run: echo "-----------------------------------------------"
       - id: source
-        run: echo "result=Hello" >> "${ GITHUB_OUTPUT }"
-      - run: echo "${ RESULT }"
+        run: echo "result=Hello" >> "${GITHUB_OUTPUT}"
+      - run: echo "${RESULT}"
         env:
           RESULT: ${{ steps.source.outputs.result }}
