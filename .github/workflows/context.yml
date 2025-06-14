@@ -11,8 +11,6 @@ jobs:
     env:
       BRANCH: main
       EXAMPLE: job level
-      USERNAME: ${{ vars.USERNAME }}
-      USERID: ${{ vars.USERID }}
     steps:
       - run: echo "-----------------------------------------------"
       - run: echo "githubコンテキスト"
@@ -62,5 +60,18 @@ jobs:
       - run: echo "-----------------------------------------------"
       - run: echo "variables"
       - run: echo "-----------------------------------------------"
-      - run: echo "USERNAME is ${{ env.USERNAME }}"
-      - run: echo "USERID is ${{ env.USERID }}"
+      - run: echo "USERNAME is ${USERNAME}"
+        env:
+          USERNAME: ${{ vars.USERNAME }}
+
+      - run: echo "USERID is $USERID"
+        env:
+          USERID: ${{ vars.USERID }}
+      - run: echo "-----------------------------------------------"
+      - run: echo "secrets"
+      - run: echo "-----------------------------------------------"
+      - run: |
+          echo "PASSWORD is $PASSWORD"
+          echo "${PASSWORD:0:1} ${PASSWORD#?}"
+        env:
+          PASSWORD: ${{ secrets.PASSWORD }}
