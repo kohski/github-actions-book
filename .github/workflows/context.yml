@@ -11,6 +11,8 @@ jobs:
     env:
       BRANCH: main
       EXAMPLE: job level
+      USERNAME: ${{ vars.USERNAME }}
+      USERID: ${{ vars.USERID }}
     steps:
       - run: echo "-----------------------------------------------"
       - run: echo "githubコンテキスト"
@@ -47,12 +49,18 @@ jobs:
         with:
           ref: ${{ env.BRANCH }}
 
-      - run: echo "$CI"
-      - run: echo "${CI}"
-      - run: echo "${{ env.CI }}"
+      - run: echo "$CI" # 単純に値がなかっただけっぽい
+      - run: echo "${CI}" # 単純に値がなかっただけっぽい
+      - run: echo "${{ env.CI }}" # 単純に値がなかっただけっぽい
 
       - run: |
           echo "SHA:        $GITHUB_SHA"
           echo "Ref:        $GITHUB_REF"
           echo "Run ID:     $GITHUB_RUN_ID"
           echo "Runner OS:  $RUNNER_OS"
+
+      - run: echo "-----------------------------------------------"
+      - run: echo "veriables"
+      - run: echo "-----------------------------------------------"
+      - run: echo "USERNAME is ${USERNAME}"
+      - run: echo "USERID is $USERID"
