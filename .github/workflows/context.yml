@@ -116,3 +116,5 @@ jobs:
       - run: echo "${RESULT}"
         env:
           RESULT: ${{ steps.source.outputs.result }}
+      - run: echo "RESULT=hi" >> ${GITHUB_ENV}
+      - run: echo "${RESULT}"
