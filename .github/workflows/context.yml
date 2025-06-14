@@ -108,3 +108,11 @@ jobs:
       - run: exit 1
       - run: echo "exited failured!!"
         if: ${{ failure() }}
+      - run: echo "-----------------------------------------------"
+      - run: echo "ステップ間の受渡し"
+      - run: echo "-----------------------------------------------"
+      - id: source
+        run: echo "result=Hello" >> "${ GITHUB_OUTPUT }"
+      - run: echo "${ RESULT }"
+        env:
+          RESULT: ${{ steps.source.outputs.result }}
