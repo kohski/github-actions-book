@@ -96,3 +96,5 @@ jobs:
           CONTAINS_FUNC: ${{ contains('Hello', 'ell') }}
           STARTSWITH_FUNC: ${{ startsWith('Hello', 'Hel') }}
           ENDSWITH_FUNC: ${{ endsWith('Hello', 'llo') }}
+          FORMAT_FUNC: ${{ format('{}, {}.', 'Hello', 'World') }}
+          JOIN_FUNC: ${{ format('Hello, ', 'World!!') }}
