@@ -75,6 +75,7 @@ jobs:
           echo "${PASSWORD:0:1} ${PASSWORD#?}" # s uperSecret!!
         env:
           PASSWORD: ${{ secrets.PASSWORD }}
+
       - run: echo "-----------------------------------------------"
       - run: echo "式"
       - run: echo "-----------------------------------------------"
@@ -85,4 +86,13 @@ jobs:
           LITERAL_NUMBER: ${{ 1234 }}
           LITERAL_STRING: ${{ 'HELLO' }}
           LITERAL_OMIT_STRING: World
-      - run: echo "object filtering ${github.event.*.html_url}"
+      # - run: echo "object filtering ${github.event.*.html_url}"
+
+      - run: echo "-----------------------------------------------"
+      - run: echo "関数"
+      - run: echo "-----------------------------------------------"
+      - run: printenv | grep '_FUNC'
+        env:
+          CONTAINS_FUNC: ${{ contains('Hello', 'ell') }}
+          STARTSWITH_FUNC: ${{ startsWith('Hello', 'Hel') }}
+          ENDSWITH_FUNC: ${{ endsWith('Hello', 'llo') }}
