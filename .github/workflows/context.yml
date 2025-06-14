@@ -98,3 +98,4 @@ jobs:
           ENDSWITH_FUNC: ${{ endsWith('Hello', 'llo') }}
           FORMAT_FUNC: ${{ format('{0}, {1}.', 'Hello', 'World') }}
           JOIN_FUNC: ${{ format('Hello, ', 'World!!') }}
+          TOJSON_FUNC: ${{ toJSON(github) }}
