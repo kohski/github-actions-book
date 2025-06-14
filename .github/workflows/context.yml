@@ -99,3 +99,4 @@ jobs:
           FORMAT_FUNC: ${{ format('{0}, {1}.', 'Hello', 'World') }}
           JOIN_FUNC: ${{ format('Hello, ', 'World!!') }}
           TOJSON_FUNC: ${{ toJSON(github) }}
+          HASH_FUNC: ${{ hashFiles('.github/workflows/*.yml') }}
