@@ -100,3 +100,8 @@ jobs:
           JOIN_FUNC: ${{ join('Hello, World!!', ',') }}
           TOJSON_FUNC: ${{ toJSON(github) }}
           HASH_FUNC: ${{ hashFiles('.github/workflows/*.yml') }}
+      - run: echo "-----------------------------------------------"
+      - run: echo "条件分岐"
+      - run: echo "-----------------------------------------------"
+      - run: echo "triggered!!!!"
+        if: ${{ contains(github.run_id, '1') }}
