@@ -71,7 +71,17 @@ jobs:
       - run: echo "secrets"
       - run: echo "-----------------------------------------------"
       - run: |
-          echo "PASSWORD is $PASSWORD"
-          echo "${PASSWORD:0:1} ${PASSWORD#?}"
+          echo "PASSWORD is $PASSWORD" # PASSWORD is ***
+          echo "${PASSWORD:0:1} ${PASSWORD#?}" # s uperSecret!!
         env:
           PASSWORD: ${{ secrets.PASSWORD }}
+      - run: echo "-----------------------------------------------"
+      - run: echo "式"
+      - run: echo "-----------------------------------------------"
+      - run: printenv | grep 'LITERAL_'
+        env:
+          LITERAL_NULL: ${{ null }}
+          LITERAL_BOOLEAN: ${{ true }}
+          LITERAL_NUMBER: ${{ 1234 }}
+          LITERAL_STRING: ${{ 'HELLO' }}
+          LITERAL_OMIT_STRING: World
