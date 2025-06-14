@@ -105,3 +105,6 @@ jobs:
       - run: echo "-----------------------------------------------"
       - run: echo "${{github.run_id}} => triggered!!"
         if: ${{ contains(github.run_id, '1') }}
+      - run: exit 1
+      - run: echo "exited failured!!"
+        if: ${{ failure() }}
