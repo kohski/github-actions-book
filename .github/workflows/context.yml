@@ -103,5 +103,5 @@ jobs:
       - run: echo "-----------------------------------------------"
       - run: echo "条件分岐"
       - run: echo "-----------------------------------------------"
-      - run: echo "triggered!!!!"
+      - run: echo "triggered!!"
         if: ${{ contains(github.run_id, '1') }}
