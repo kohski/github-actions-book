@@ -60,7 +60,7 @@ jobs:
           echo "Runner OS:  $RUNNER_OS"
 
       - run: echo "-----------------------------------------------"
-      - run: echo "veriables"
+      - run: echo "variables"
       - run: echo "-----------------------------------------------"
-      - run: echo "USERNAME is ${USERNAME}"
-      - run: echo "USERID is $USERID"
+      - run: echo "USERNAME is ${{ env.USERNAME }}"
+      - run: echo "USERID is ${{ env.USERID }}"
